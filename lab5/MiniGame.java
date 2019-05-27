@@ -1,4 +1,4 @@
-ackage lab5;
+package lab5;
 
 import com.sun.j3d.utils.universe.*;
 
