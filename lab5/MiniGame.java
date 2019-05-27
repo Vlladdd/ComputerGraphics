@@ -1,4 +1,4 @@
-package lab5;
+ackage lab5;
 
 import com.sun.j3d.utils.universe.*;
 
@@ -22,7 +22,7 @@ public class MiniGame extends JFrame {
 	private static SimpleUniverse universe;
 	private static BranchGroup root;
 	
-	private static TransformGroup boat;
+	private static TransformGroup car;
 	
     public MiniGame() throws IOException {
     	configureWindow();
@@ -40,8 +40,8 @@ public class MiniGame extends JFrame {
         
 
         
-        boat = getBoatGroup();
-        root.addChild(boat);
+        car = getCarGroup();
+        root.addChild(car);
         
         root.compile();
         universe.addBranchGraph(root);
@@ -106,14 +106,13 @@ public class MiniGame extends JFrame {
     // start main
     
 
-    private TransformGroup getBoatGroup() throws IOException {
-        // Shape3D shape = getModelShape3D("frame0", "source_folder/car/car.obj");
+    private TransformGroup getCarGroup() throws IOException {
     	Shape3D shape = getModelShape3D("part", "resources/car2.obj");
     
     	Transform3D transform3D = new Transform3D();
     	transform3D.setScale(new Vector3d(0.2, 0.2, 0.2));
 
-//
+
     	transform3D.setRotation(new AxisAngle4d(1, 0, 0, 1.5708));
  
 
@@ -175,8 +174,8 @@ public class MiniGame extends JFrame {
     public static void main(String[] args) {
         try {
         	MiniGame window = new MiniGame();
-            AnimationCar boatMovement = new AnimationCar(boat);
-            canvas.addKeyListener(boatMovement);
+            AnimationCar carMovement = new AnimationCar(car);
+            canvas.addKeyListener(carMovement);
             window.setVisible(true);
         } catch (IOException e) {
             System.out.println(e.getMessage());
